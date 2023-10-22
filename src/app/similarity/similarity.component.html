@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 50vh;">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          Text similarity
+        </div>
+        <div class="card-body">
+          <form (submit) = "submitForm()">
+            <div class="form-group">
+              <label for="textArea1">First text:</label>
+              <textarea class="form-control" id="textArea1" name="textArea" rows="10" [(ngModel)]="text1" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="textArea2">Second text:</label>
+              <textarea class="form-control" id="textArea2" name="textArea" rows="10" [(ngModel)]="text2" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 50vh;">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          Language detection
+        </div>
+
+        <div class="card-body">
+          <form (submit) = "submitForm()">
+            <div class="form-group">
+              <label for="textArea">Text Area:</label>
+              <textarea class="form-control" id="textArea" name="textArea" rows="10" [(ngModel)]="text" required></textarea>
+            </div>
+
+            <!-- Radio Buttons using Bootstrap grid system -->
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">Choose Language:</label>
+              <div class="col-md-10">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="language1" name="language" value="option1" [(ngModel)]="en">
+                  <label class="form-check-label" for="language1">EN</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="language2" name="language" value="option2" [(ngModel)]="it">
+                  <label class="form-check-label" for="language2">IT</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" id="language3" name="language" value="option3" [(ngModel)]="auto">
+                  <label class="form-check-label" for="language3">Auto</label>
+                </div>
+              </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
