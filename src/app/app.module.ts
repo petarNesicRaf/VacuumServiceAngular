@@ -9,6 +9,7 @@ import { LanguageComponent } from './language/language.component';
 import { SentimentComponent } from './sentiment/sentiment.component';
 import { TokenComponent } from './token/token.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

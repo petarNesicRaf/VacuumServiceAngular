@@ -26,6 +26,11 @@
 
             <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
           </form>
+          <div>
+            <div *ngFor="let lang of language.detectedLangs; let i = index;" class="mb-2">
+              <h3>{{ i+1 }} {{lang.lang }}  |  {{lang.confidence}}</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
