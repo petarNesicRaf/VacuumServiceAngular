@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Language} from "../model";
-import {LanguageService} from "../services/language.service";
+import {LanguageService} from "../services/language/language.service";
 
 @Component({
   selector: 'app-language',
