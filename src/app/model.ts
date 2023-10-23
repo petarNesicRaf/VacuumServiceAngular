@@ -18,3 +18,15 @@ export interface DetectedLanguage{
   lang:string,
     confidence:number
 }
+
+export interface Sentiment{
+    timestamp:string,
+    time:number,
+    lang:string,
+    sentiment: DetectedSentiment
+}
+
+export interface DetectedSentiment{
+    score:number
+    type:string
+}
