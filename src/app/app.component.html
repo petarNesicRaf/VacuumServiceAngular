@@ -2,21 +2,21 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a [routerLink]="'/'" class="navbar-brand">TxtTool</a>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a [routerLink]="'/'" class="nav-link active" aria-current="page">Token</a>
           <a [routerLink]="'/language'" class="nav-link active" aria-current="page">Language detection</a>
           <a [routerLink]="'/sentiment'" class="nav-link active" aria-current="page">Sentiment analysis</a>
           <a [routerLink]="'/similarity'" class="nav-link active" aria-current="page">Text similarity</a>
           <a [routerLink]="'/extraction'" class="nav-link active" aria-current="page">Entity extraction</a>
-          <button *ngIf="loggedIn" (click) = "logOut()">Log out</button>
+          <a [routerLink]="'/history'" class="nav-link active" aria-current="page">History</a>
         </div>
-
       </div>
+      <button *ngIf="loggedIn" (click)="logOut()" class="btn btn-primary ml-auto">Log out</button>
+
     </div>
   </nav>
 </header>
-
 <div class="container pt-3">
   <router-outlet></router-outlet>
 </div>

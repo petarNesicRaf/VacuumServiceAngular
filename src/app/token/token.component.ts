@@ -13,4 +13,5 @@ export class TokenComponent {
       localStorage.setItem("token", this.token)
   }
 
+  protected readonly localStorage = localStorage;
 }

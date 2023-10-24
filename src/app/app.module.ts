@@ -8,8 +8,10 @@ import { SimilarityComponent } from './similarity/similarity.component';
 import { LanguageComponent } from './language/language.component';
 import { SentimentComponent } from './sentiment/sentiment.component';
 import { TokenComponent } from './token/token.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HistoryComponent } from './history/history.component';
+import { RequestPipe } from './pipes/request.pipe';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     SimilarityComponent,
     LanguageComponent,
     SentimentComponent,
-    TokenComponent
+    TokenComponent,
+    HistoryComponent,
+    RequestPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import {SentimentComponent} from "./sentiment/sentiment.component";
 import {SimilarityComponent} from "./similarity/similarity.component";
 import {TokenComponent} from "./token/token.component";
 import {AuthGuard} from "./auth/auth.guard";
+import {HistoryComponent} from "./history/history.component";
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
 
 
+  },
+  {
+    path:"history",
+    component:HistoryComponent,
+    canActivate:[AuthGuard]
   }
 ];
 
