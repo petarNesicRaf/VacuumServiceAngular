@@ -1,4 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
+import {EntityService} from "../services/entity/entity.service";
+import {Entity} from "../model";
 
 @Component({
   selector: 'app-extraction',
@@ -14,12 +16,38 @@ export class ExtractionComponent {
   categories: boolean = false
 
 
+  entity:Entity = {
+    timestamp:"",
+    time:0,
+    lang:"",
+    annotations:[]
+  }
+
+  constructor(private entityService:EntityService)
+  {}
 
 
-  submitForm()
+
+  submitForm(){
+      let include = this.checkInclude(this.image, this.abstract, this.categories)
+      this.entityService.getEntity(this.text, include, 0.5).subscribe((e)=>{
+        this.entity = e
+        console.log(this.entity)
+      })
+  }
+
+  checkInclude(image:boolean, abstract:boolean, categories:boolean):string
   {
-    console.log("p", this.paragraph)
-    console.log("check", this.image, this.abstract, this.categories)
+    let ret:string=""
+    if(image)
+      ret+="image,"
+    if(abstract)
+      ret+="abstract,"
+    if(categories)
+      ret+="categories,"
+
+    return ret.slice(0,-1)
+
   }
   updateSliderValue(event: any) {
     this.sliderValue = parseFloat(event.target.value);

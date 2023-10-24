@@ -9,6 +9,7 @@
           <a [routerLink]="'/sentiment'" class="nav-link active" aria-current="page">Sentiment analysis</a>
           <a [routerLink]="'/similarity'" class="nav-link active" aria-current="page">Text similarity</a>
           <a [routerLink]="'/extraction'" class="nav-link active" aria-current="page">Entity extraction</a>
+          <button *ngIf="loggedIn" (click) = "logOut()">Log out</button>
         </div>
 
       </div>

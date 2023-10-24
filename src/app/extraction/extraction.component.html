@@ -38,6 +38,27 @@
 
             <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
           </form>
+
+          <div>
+            <div *ngFor="let annotation of entity.annotations; let i = index;" class="mb-2">
+              <h3>Abstract:</h3>
+              <p>{{annotation.abstract}}</p>
+              <h3>Categories:</h3>
+              <div *ngFor="let cat of annotation.categories">
+                <p>{{cat}}</p>
+              </div>
+              <h3>Image:</h3>
+              <div>
+                <p>Full image</p>
+              <img src="{{annotation.image.full}}" alt="Full image" width = "300" height="300">
+              </div>
+              <div>
+                <p>Thumbnail</p>
+              <img src="{{annotation.image.thumbnail}}" alt="Full thumbnail" width = "150" height="150">
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

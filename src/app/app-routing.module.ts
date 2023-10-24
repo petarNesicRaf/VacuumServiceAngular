@@ -5,27 +5,39 @@ import {LanguageComponent} from "./language/language.component";
 import {SentimentComponent} from "./sentiment/sentiment.component";
 import {SimilarityComponent} from "./similarity/similarity.component";
 import {TokenComponent} from "./token/token.component";
+import {AuthGuard} from "./auth/auth.guard";
 
 const routes: Routes = [
   {
     path:"",
-    component: TokenComponent
+    component: TokenComponent,
   },
   {
     path:"language",
-    component: LanguageComponent
+    component: LanguageComponent,
+    canActivate: [AuthGuard]
+
+
   },
   {
     path:"sentiment",
-    component:SentimentComponent
+    component:SentimentComponent,
+    canActivate: [AuthGuard]
+
   },
   {
     path: "similarity",
-    component: SimilarityComponent
+    component: SimilarityComponent,
+    canActivate: [AuthGuard]
+
+
   },
   {
     path:"extraction",
-    component: ExtractionComponent
+    component: ExtractionComponent,
+    canActivate: [AuthGuard]
+
+
   }
 ];
 
