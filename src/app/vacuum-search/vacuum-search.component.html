@@ -1,0 +1,42 @@
+<div class="container mt-4">
+<div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="searchName" placeholder="Search vacuums by name...">
+    <input type="number" class="form-control" [(ngModel)]="pageSize" placeholder="Page Size">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button" (click)="search()">Search</button>
+    </div>
+</div>
+
+
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="fromDate" placeholder="From date yyyy-mm-dd">
+        <input type="text" class="form-control" [(ngModel)]="toDate" placeholder="To date yyyy-mm-dd">
+
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" (click)="searchDate()">Search</button>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+
+            <label>Status:</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="statusOn" [(ngModel)]="statusOn"> ON
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="statusOff" [(ngModel)]="statusOff"> OFF
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="statusDischarging" [(ngModel)]="statusDischarging"> DISCHARGING
+            </div>
+
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" (click)="searchStatus()">Search</button>
+        </div>
+    </div>
+
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let vacuum of searchResults">{{vacuum.name}} {{vacuum.status}} {{vacuum.active}}</li>
+    </ul>
+</div>

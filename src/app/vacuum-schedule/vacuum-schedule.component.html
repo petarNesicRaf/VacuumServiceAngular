@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <h2>My vacuums</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Active</th>
+            <th>On</th>
+            <th>Off</th>
+            <th>Discharge</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vacuum of vacuums">
+            <td>{{vacuum.id}}</td>
+            <td>{{ vacuum.name }}</td>
+            <td>{{ vacuum.status }}</td>
+            <td>{{ vacuum.active }}</td>
+            <td>
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="date" placeholder="dd.MM.yyyy hh:mm">
+                </div>
+            </td>
+            <td>
+                <button class = "btn btn-primary" *ngIf = "authService.canStartVacuum"(click)="turnOnScheduled(vacuum.id)">Turn on</button>
+            </td>
+            <td>
+                <button class = "btn btn-primary"*ngIf = "authService.canStopVacuum"(click)="turnOffScheduled(vacuum.id)" >Turn off</button>
+            </td>
+            <td>
+                <button class = "btn btn-primary"*ngIf = "authService.canDischargeVacuum"(click)="dischargeScheduled(vacuum.id)" >Discharge</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "./auth.service";
 
 @Component({
   selector: 'app-root',
@@ -6,20 +7,33 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'TextAnalysis';
+  title = 'Vacuums';
   loggedIn:boolean= false
-
+  canRead:boolean =false
+  canCreate:boolean = false
+  constructor(public auth: AuthService) {
+  }
   ngOnInit() {
-    this.isLogedIn()
-  }
-  isLogedIn(){
-    if(localStorage.getItem("token")!==null) this.loggedIn=true
-    else this.loggedIn=false
   }
 
-  logOut()
+  getCanCreate():boolean
   {
-    console.log("logged out")
-    localStorage.removeItem("token")
+    return this.auth.getCanCreate()
   }
+  getCanRead():boolean
+  {
+    return this.auth.getCanRead()
+  }
+
+  isLoggedIn():boolean
+  {
+    return this.auth.isLoggedIn()
+  }
+
+  logOut():void
+  {
+    this.auth.logout()
+    this.auth.setLoggedIn(false)
+  }
+
 }

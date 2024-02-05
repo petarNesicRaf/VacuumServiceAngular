@@ -1,18 +1,21 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a [routerLink]="'/'" class="navbar-brand">TxtTool</a>
+      <a [routerLink]="'/'" class="navbar-brand">Vacuum</a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a [routerLink]="'/'" class="nav-link active" aria-current="page">Token</a>
-          <a [routerLink]="'/language'" class="nav-link active" aria-current="page">Language detection</a>
-          <a [routerLink]="'/sentiment'" class="nav-link active" aria-current="page">Sentiment analysis</a>
-          <a [routerLink]="'/similarity'" class="nav-link active" aria-current="page">Text similarity</a>
-          <a [routerLink]="'/extraction'" class="nav-link active" aria-current="page">Entity extraction</a>
-          <a [routerLink]="'/history'" class="nav-link active" aria-current="page">History</a>
+          <a [routerLink]="'/login'" *ngIf = "!isLoggedIn()"class="nav-link active" aria-current="page">Login</a>
+          <a [routerLink]="'/register'" *ngIf = "!isLoggedIn()" class="nav-link active" aria-current="page">Register</a>
+          <a [routerLink]="'/users'"  *ngIf="getCanRead()" class="nav-link active" aria-current="page">Users</a>
+          <a [routerLink]="'/create'" *ngIf="getCanCreate()" class="nav-link active" aria-current="page">Create user</a>
+          <a [routerLink]="'/add-vacuum'" *ngIf = "auth.canAddVacuum"class="nav-link active" aria-current="page">Add vacuum</a>
+          <a [routerLink]="'/all-vacuums'" class="nav-link active" aria-current="page">My vacuums</a>
+          <a [routerLink]="'/search'" *ngIf = "auth.canSearchVacuum"  class="nav-link active" aria-current="page">Search</a>
+          <a [routerLink]="'/schedule'" class="nav-link active" aria-current="page">Schedule</a>
+
         </div>
       </div>
-      <button *ngIf="loggedIn" (click)="logOut()" class="btn btn-primary ml-auto">Log out</button>
+      <button *ngIf="isLoggedIn()" (click)="logOut()" class="btn btn-primary ml-auto">Log out</button>
 
     </div>
   </nav>

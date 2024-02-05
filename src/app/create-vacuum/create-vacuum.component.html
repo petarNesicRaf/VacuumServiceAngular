@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <h2>Create vacuum</h2>
+    <form (ngSubmit)="createVacuum()">
+        <div class="form-group">
+            <label for="email">Vacuum name:</label>
+            <input type="text" id="email" class="form-control" [(ngModel)]="vacuum.name" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Vacuum activity:</label>
+            <input type="password" id="password" class="form-control" [(ngModel)]="vacuum.active" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
